@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    {% for messages in messages %}
+        {% if messages %}
+            <p>{{messages}}</p>
+        {% endif %}
+    {% endfor %}
+    <form action="/process/register" method="post">
+        {% csrf_token %}
+        <h1>Registration Form</h1>
+        <h4>First Name: </h4><input type="text" name ="first_name">
+        <h4>Last Name: </h4><input type="text" name = "last_name">
+        <h4>Email: </h4><input type="text" name ="email">
+        <h4>Password: </h4><input type="password" name ="password">
+        <h4>Confirm Password: </h4><input type="password" name ="confirm_password">
+        <button>Register</button>
+    </form>
+    <form action="/process/login" method="post">
+        {% csrf_token %}
+        <h1>Login Form</h1>
+        <h4>Email: </h4><input type="text" name ="email">
+        <h4>Password: </h4><input type="password" name ="password">
+        <button>Login</button>
+    </form>
+</body>
+</html>
